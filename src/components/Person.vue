@@ -1,6 +1,6 @@
 <template>
  <div class="person">   
-    <h1 class="welcome">您好{{currentUser}},快来记录你的生活收支吧</h1>
+    <h1 class="welcome">您好{{currentUser}},快来记录你的生活收支吧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<router-link :to="{name:'Login'}">退出登录</router-link></h1>
     <el-upload
 	  class="avatar-uploader"
 	  action="https://jsonplaceholder.typicode.com/posts/"
