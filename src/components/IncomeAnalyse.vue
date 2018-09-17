@@ -1,5 +1,9 @@
 <template>
- <div id="myChart" :style="{width: '50%', height: '600px'}"></div>
+  <div>
+    <h1 class="mark">{{this.mark}}</h1>
+    <div id="myChart" :style="{width: '50%', height: '600px'}"></div>
+  </div>
+ 
 </template>
 
 <script>
@@ -15,7 +19,8 @@ export default {
   name: 'IncomeAnalyse',
   data(){
     return {
-        myData:[]
+        myData:[],
+        mark:"",
     }
   },
   created(){
@@ -29,7 +34,10 @@ export default {
         this.tableData=this.arrReset(this.$store.state.tableData,'income');
         this.tableoutData=this.arrReset(this.$store.state.tableoutData,'output');
         let myData=this.removeDup(this.tableData,this.tableoutData);
-        this.myData=this.arrSort(myData,'date')
+        this.myData=this.arrSort(myData,'date');
+        if (this.myData.length==0) {
+          this.mark='还没有收支数据哦，赶紧去记录吧'
+        }
     },
      //数组字段排序
     arrSort(arr,property){
@@ -161,5 +169,10 @@ export default {
 	right: 20%;
 	padding-top: 50px;
 	z-index: 1
+}
+.mark{
+  padding-top: 30px;
+  font-family: "YouYuan";
+  color: #67C23A;
 }
 </style>

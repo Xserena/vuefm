@@ -1,5 +1,8 @@
 <template>
+  <div>
+    <h1 class="mark">{{this.mark}}</h1>
     <div id="myChart" :style="{width: '50%', height: '600px'}"></div>
+  </div>   
 </template>
 
 <script>
@@ -15,7 +18,8 @@ export default {
   name: 'OutputAnalyse',
   data(){
     return {
-        myData:[]
+        myData:[],
+        mark:"",
     }
   },
   created(){
@@ -145,6 +149,9 @@ export default {
       }
       // console.log(acn(myData))
       this.myData=acn(myData)
+      if (this.myData.length==0) {
+          this.mark='还没有支出数据哦，赶紧去记录吧'
+        }
     },
 
     drawLine() {
@@ -255,5 +262,10 @@ export default {
 	right: 20%;
 	padding-top: 50px;
 	z-index: 1
+}
+.mark{
+  padding-top: 30px;
+  font-family: "YouYuan";
+  color: #67C23A;
 }
 </style>
